@@ -3,6 +3,7 @@ package config
 import (
 	"encoding/json"
 	"errors"
+	"net/url"
 	"os"
 	"path/filepath"
 )
@@ -24,6 +25,8 @@ type UrlPattern struct {
 
 type Repo struct {
 	Url               string         `json:"url"`
+	User              string         `json:"user"`
+	Password          string         `json:"password"`
 	MsBetweenPolls    int            `json:"ms-between-poll"`
 	Vcs               string         `json:"vcs"`
 	VcsConfigMessage  *SecretMessage `json:"vcs-config"`
@@ -50,6 +53,18 @@ func (r *Repo) PollUpdatesEnabled() bool {
 // Are push based updates enabled on this repo?
 func (r *Repo) PushUpdatesEnabled() bool {
 	return optionToBool(r.EnablePushUpdates, defaultPushEnabled)
+}
+
+func (r *Repo) GetClonableUrl() string {
+	if r.User != "" && r.Password != "" {
+		if ur, err := url.Parse(r.Url); err != nil {
+			return r.Url
+		} else {
+			ur.User = url.UserPassword(r.User, r.Password)
+			return ur.String()
+		}
+	}
+	return r.Url
 }
 
 type Config struct {
