@@ -11,7 +11,7 @@ def get_tools_directory():
 def has_valid_location(tools):
 	""" ensure that the repository is in the GOPATH """
 	parts = [x.lower() for x in tools.split(os.sep)]
-	return parts[-5:-1] == ['src', 'github.com', 'etsy', 'hound']
+	return parts[-5:-1] == ['src', 'github.com', 'mapix', 'hound']
 
 def process(src, dst, filenames, op):
 	""" process the filenames from source and use op to produce them in dst """
@@ -25,9 +25,9 @@ def main():
 	tools = get_tools_directory()
 	if not has_valid_location(tools):
 		print >> sys.stderr, "The Hound repository should be in a directory like:"
-		print >> sys.stderr, "src/github.com/etsy/hound"
+		print >> sys.stderr, "src/github.com/mapix/hound"
 		print >> sys.stderr, ""
-		print >> sys.stderr, "Follow the directions at https://github.com/etsy/hound#editing--building"
+		print >> sys.stderr, "Follow the directions at https://github.com/mapix/hound#editing--building"
 		return 1
 	work = os.path.join(tools, '..', '..', '..', '..', '..')
 

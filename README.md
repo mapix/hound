@@ -1,6 +1,6 @@
 # Hound
 
-[![Build Status](https://travis-ci.org/etsy/hound.svg?branch=master)](https://travis-ci.org/etsy/hound) [![Join the chat at https://gitter.im/etsy/Hound](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/etsy/Hound?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Build Status](https://travis-ci.org/mapix/hound.svg?branch=master)](https://travis-ci.org/mapix/hound) [![Join the chat at https://gitter.im/mapix/Hound](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/mapix/Hound?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 Hound is an extremely fast source code search engine. The core is based on this article (and code) from Russ Cox:
 [Regular Expression Matching with a Trigram Index](http://swtch.com/~rsc/regexp/regexp4.html). Hound itself is a static
@@ -15,7 +15,7 @@ Hound is an extremely fast source code search engine. The core is based on this 
 1. Use the Go tools to install Hound. The binaries `houndd` (server) and `hound` (cli) will be installed in your $GOPATH.
 
 ```
-go get github.com/etsy/hound/cmds/...
+go get github.com/mapix/hound/cmds/...
 ```
 
 2. Create a [config.json](config-example.json) in a directory with your list of repositories.
@@ -34,7 +34,7 @@ go get github.com/etsy/hound/cmds/...
 
 2. Run 
 ```
-docker run -d -p 6080:6080 --name hound -v $(pwd):/data etsy/hound
+docker run -d -p 6080:6080 --name hound -v $(pwd):/data mapix/hound
 ```
 
 You should be able to navigate to [http://localhost:6080/](http://localhost:6080/) as usual.
@@ -101,9 +101,9 @@ Currently the following editors have plugins that support Hound:
 Hound includes tools to make building locally easy. It is recommended that you use these tools if you are working on Hound. To get setup and build, just run the following commands:
 
 ```
-git clone https://github.com/etsy/hound.git hound/src/github.com/etsy/hound
+git clone https://github.com/mapix/hound.git hound/src/github.com/mapix/hound
 cd hound
-src/github.com/etsy/hound/tools/setup
+src/github.com/mapix/hound/tools/setup
 make
 ```
 
@@ -127,7 +127,7 @@ bin/houndd --dev
 
 ## Get in Touch
 
-Created at [Etsy](https://www.etsy.com) by:
+Created at [Etsy](https://www.mapix.com) by:
 
 * [Kelly Norton](https://github.com/kellegous)
 * [Jonathan Klein](https://github.com/jklein)

@@ -9,7 +9,7 @@ import (
 )
 
 const (
-	url = "https://www.etsy.com/"
+	url = "https://www.mapix.com/"
 	rev = "r420"
 )
 
